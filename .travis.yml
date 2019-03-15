@@ -8,6 +8,7 @@ env:
   global:
   - secure: "hwf+0G1JHXoSjhZ0e9emnZepZUyaleIXy9NCDKv2TJrL9J7E49c2D+hNrgs4MD8Deu24IrzuxCQ5fr91l1EgPzIN9P1lY5HXcRZfyuLo2BWmDopL68rZSWAJNLK56zJYAhIr9O78yezdqY1oUlP+V6faR4a+48cYTAThlUXUmlora5YjJZEoGN3JPV7pqf79k9nPwr5/6QDwoWbopVI2Z9boT9MOyxLm/i6wCoHtwz+IDWIz17xMULHM4jc/u0SUq4HWApMy6aLUOKqC4PV3x23p7wI6h7S5nfhx6Yzr9xqkgVxMoRt2vxgY8nvDHQ5WN7CNF1XdIyzlwFd3JXILObkRXJvIhdE9o6eog9/NEnRsTTOv8U0trUGeDON06uzT7qRP2kj7vXQIDFHyQBSxD+NodhZI5ytD2vlaSAQYAwOS4vTCjVLjm3m5ycO8gXSuPOIlCn8B9EelnvCs012vfMLxMHhoaQYvYKEXLcVUKc+kFik1WssFuqGCWVj2E0t8gSdaUhut0AAIDjULrhtc6UblLChlO6SdWpdFrRBACB9nv2/lsNDQwFuRr/8UagsVYKmIbH5mzqmOzlzBZ2RCYwkWDRoT4OaGMq79Mx/8lyQCnDD0PMnmDxZF9HaLaJIk2K24k9oVkgUyqGlNE1BZJjrFkB9WcnsDi9crraEHE9k="
   - secure: "rqeYn8OKU69zRkYyKkowAA5olltkYCMX5tZ+9DRIhY6C89QQPXOpnbzJ5d+5FIB9GWVl4CZuU23U59QKkf4TbxWMkHeG0ZCfte5nvFQw+QnQ/8GPktc6RMHb0w60dQ9XU6BCkym1W4UEymjC+3uTkdnnB7G5Kjy/ID+sbmyszCDxJ3tu6q1Gtj/PpBqesUoYHJ+nNR/85bgLwbmAoc8+oEw26TFZTnPurpQLe8qZdfh07EbiLy9WvpQ6DrvZU4sssGYoL0smz8CojyOPRPh1gCHHSrO7BYyKCSLFzM/HGWnB3pb3I8IgwVmJxKBCtgHhIGMn60/4mFSeo/RTskd0rz4xsyJiQC0YIM/Rd0m8CQ4En0acAY7I6WKMF8rHzCjAH2C/7o/v26pb2JrCM5RcSvpUIHBtzVny1DvrSMK95m8H6gm62ew9JJkrCc+pKdayEwmIofNT5gb8FWwSHu8xdAQJgNMa91MC49bBhkibhJM27a/C/aw/kws5u826qOWay5xivag/dQ8z4S3WEeE6U/AdHC+YiSf1Nrzg6hBmzJXYK1AWnjcGrowmS6nedvzhBPJQfXy3Z6BPUEXOra7qpYo7bPSs1YfDJaiZrkPKz38LT3rkINcAth1ssEglDoI7w8Gz9QEbgEEIoExco3cPvXr97AFoGRWVVCmnnmrP2Lc="
+  - COMMIT=${TRAVIS_COMMIT::7}
 install:
 - mvn -N io.takari:maven:wrapper
 - "./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V"
@@ -24,7 +25,7 @@ after_success:
   ; fi`
   echo $DOCKER_USER
   echo $DOCKER_PASS
-- export IMAGE_NAME=ragesghkh/healthcheck-api
+- export IMAGE_NAME=ragesghkh/healthcheckapi
 - docker build -t $IMAGE_NAME:$COMMIT .
 - docker tag $IMAGE_NAME:$COMMIT $IMAGE_NAME:$TAG
 - docker push $IMAGE_NAME
