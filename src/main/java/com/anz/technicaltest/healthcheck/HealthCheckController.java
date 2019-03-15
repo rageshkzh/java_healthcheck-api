@@ -13,15 +13,13 @@ public class HealthCheckController {
 	@RequestMapping(value = "/healthcheck", method = RequestMethod.GET)
 	@ResponseBody
 	public ApplicationData retrieveHealthCheck() {
-
-		//To-Do - integrate with Github API to retrive updated application status
-		//Hardcoding the response as of now.
-	    //http.Get("https://api.github.com/repos/rageshk/health_check_api/statuses/53c7d37603b5125c701a384e34ac75b2856427cb")
+		// To-Do - integrate with Github API to retrieve updated application status
+		// Hardcoding the response as of now.
+	    // http.Get("https://api.github.com/repos/rageshk/health_check_api/statuses/53c7d37603b5125c701a384e34ac75b2856427cb")
 		ApplicationData data = new ApplicationData("pre-interview technical test", "1.0",
 				"53c7d37603b5125c701a384e34ac75b2856427cb");
 
 		return data;
-
 	}
 
 }

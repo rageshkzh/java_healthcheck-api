@@ -20,7 +20,6 @@ public class HealthCheckControllerTest {
 		Assert.assertEquals("pre-interview technical test", data.getDescription());
 		Assert.assertEquals("1.0", data.getVersion());
 		Assert.assertEquals("53c7d37603b5125c701a384e34ac75b2856427cb", data.getLastCommitSha());
-
 	}
-
+	
 }
