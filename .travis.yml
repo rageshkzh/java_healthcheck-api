@@ -1,33 +1,25 @@
 language: java
 jdk: oraclejdk8
-
 services:
 - docker
-
 before_install:
-  - chmod +x mvnw
-
+- chmod +x mvnw
 env:
-  global:  
-  - secure: "pX27/1txNoOp1D0kFEjP0GVYSnBRNawLHv2cmxjzuETUrMFnaBYpxL2LD8tXVTrFlgnZLPlxJhCbLl6dUEjB8L1Sv8vzcmy+m7wsrPpzJ1qbm+JN7vhisGwKviHp9ZC/j5U908U5EV4yMjqV0pkWWJcBpIFvTJZ7SUw3PzeBMIStu4gA0EJuqmbr7RaL1faGwL5gIEkhYzj/lsQHeLyD8bkqECY2YZ4TjnS+YuuFv2vMQ6/O2ON7Uto18vL48BEJa9rwVb6Tv5e+SzeuMZdfI+Mqim7pWWurpcAM1bQBtrOwC2a4Yx7Wwyr/Ru0S3BQn2pVQVaUYjV9TQQAGCxWu8wuJkT6VxErJMBXgF/LNOuGG1kXsksUmKGT3F2H37Wcwu1bfzXj6iWxHd/XiEM51VkinGlfmS4ryyrVh8VhguGr5/JcWLTnEBuCwvs4Ox70+byQ+FxzivgXwg0WlWaNMLTF91v87tTpGautF0TFc4wDLhil+S9+zr+cDdY1qgDDZyOq2DWmXKZo/pyN7ZdyLly0v2kR2wyF8wzeezQM0Qlcaic21RTFg08Hef5i3XJ3oThxixIw5GF7bNr9aoQkveOkZeIMkMAx2meHE5rSbvAC57iUtS7ps2FKEjxeR78n5Pa6SdiQjmt0sSiZCXL7KeGMovDcJGMZSHCuugMtsUZM="
-  - secure: "2WBMBJuV8CmPfUu2HPQmGXexZ/Dm5dLK4ImXuufZKSYoH2+SKgQmL3rnAa9Dto3itTqHTVGi81lgK9G0P4kE/raMGsn0z7WnNU5T/GXZrxow9D24jI/p0do26j4im0nV5YwsTJTJE1nzZfnt5vGicXPP5jgP2pFW/4WGexU6EDdtOQ6e8bB5GJhJptlxcjEg6h9WiknJ+J3tHEPquAvyC+kReqpzGI9/e2fyJCyM8Y4UNKBKJ4dGJUfrOhGew/zImJdTBud/1K9kdgBQGAF4/sCAT8ZZ27YKjbHjhbl+nGQrWtB46QcI53D5eH2udwaw6XSDaQBlM2XggFIwT9Q1dpF7GCmeqqKP2B8ieGGrZQZjkbQeceE+kZ8acgnLshfz/xM13WuNmW1lTNYomc7egVqRkN1wg7UNVH2ouamVE4CMd03f62+GNUsMuxDZliWzXUyGFNbnFPZK5S3f3SVqt3IHef9zgefqoHbTDg6kXZaNvLR9LlAvt/3CWzio9kWjPWbcXNpMcpVbc8iCaLXh599oRAJktQpVMlof19nc/RT7uKs7OlJK/8zPt8/wXahPSqGm6z2FC8KIsr/C6yQCfgOKI8v+0BG04JaGwH+4o4aqenKKSXqS/gmnMC6eNdjrrkTCYwr3I39EUeIfaunpHNWzTGJlSGM+McBNkndV8nU="
-
+  global:
+  - secure: 19oSoYoth5ke4W1jqfmSXrgBoLeRFy4Kw7Z5QzepPDIFQ4vZqQgZSeEjxMF+ksMWc+fFU8zJSmNQsV+nWV1f244Da0+WTKbE+p12SVNa8+HcHMuGoUWBqKBPTSu2CTyuSGQ91dh8pXkIovrVFc2y/SP24+uoIRMPW1OfkBiVY/Z0+WNLWbG5DxHrlHGlinQmKckRiDuTfb/RmdNe1mRsHTkTEZqx7ekZ3BW/gxwwZNaCvkiXFzaBNa6FAkhK44nUsTdP6+WP2MFNriPsQxTlpXpDhPfuGtPPYxrCP1EhQrpmsXlJ8nB64mGY1OtASmTZBbGAKIV5mdBMIbY0gRYhvU7UzCCRlVyfQt7R5wyQTI0ruyrDxEES4TWY9mQmpzr5THueZp3Q6YYEDQ0AeIKc83hl5xi3AKCUqPBfpRVmVXaEWQIo5JTLaxmVP3n37gztFok8cRbWyVOZGS3zLnM1QrFNDdp4wzJ49223HSitODcQ+TiOzMf+xUYO6L2gxxwvwZknNweCzXaC56CQE6BMi6m+A9auxyuFsYBXqGw9EDFAOKfIhYyQcV0BVoOBYrQu2WDNpDtJxjJk6qQ5OWnd2hIcYA5ds0nPIvwFw5hZvNcLogtV2Dt1dpycWPbIf/rl+hTySosQLqJljqprhYCgwK82GrvEz2QDbFdHh/iHbUg=
+  - secure: bzoKqu1h51zXB3c2tRmN78dF0MZU0LgKY8GmPDza4G+yGgGQZX3DvNk6weuNzv4z9yISx9HIJLV0AzmhYsW1maj8AM97uceLX4HTKj5wt2PPVO5bZBD0alV42dMoQ/GakK6sUmT8doo40BfmdrXHYRbmeontUjdJE5abgPNMmqz1qxMA5CffByXcDwHG0kla/rElbpxKcwFWYgFSlQAecxWatrD9iBSIOWhp5zcj6kjazvRhqiWIItKjiPd4+MHwzf7OU9pBiiXTV5BgFE7m6/4q3FUtyTGohTUn0cgFNMLcpMNwuWFW6AdB/+j3HZT/nOBW+WkY00tBrx6rarmX241go8dc9pdt0A14a/3ECusbJZU2QMXsJ2RKlJTyRjEUBflQbMCSZXDtH1tyvjWRt+w4iw4ix+aJNh1Y+rzlolJ6LNUk0sb0FJ7KiZFfaS2H6F0/Wbgfcnf1acWvyoZ+kdqRleBfDRxEg6s7IgYBht923pueePP813FzLj3/gMqvMZX+jdc83uMRivjHuB/etQykRHEuOlPG8lcaHM9mF8ZW2eD/ZKsbANOUGeNStbWfhdmb7DwY5Vi01KF1oHpwiHTPQCOf23MjuwOtxqJRxDmfwGhqpkL8LjW5IcRtO4or1FgZ/xBuSstjlz63D2e58ohvV8k0ENt3SBTIOfxk0/Q=
 install:
 - mvn -N io.takari:maven:wrapper
-- ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
-
-
+- "./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V"
 addons:
   sonarcloud:
-    organization: "rageshk-github"
+    organization: rageshk-github
     token:
       secure: ba6d7d1ad9a369f9f59e4ef1ae06f59dfa24ea35
 script:
-  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
-  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
-  
+- mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
 after_success:
-  - docker login -u $DOCKER_USER -p $DOCKER_PASS
-  - export IMAGE_NAME=rageshkh/healthcheeck-img
-  - docker build $IMAGE_NAME .
-  - docker push $IMAGE_NAME
+- docker login -u $DOCKER_USER -p $DOCKER_PASS
+- export IMAGE_NAME=rageshkh/healthcheeck-img
+- docker build $IMAGE_NAME .
+- docker push $IMAGE_NAME
