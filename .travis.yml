@@ -7,3 +7,13 @@ before_install:
 install:
 - mvn -N io.takari:maven:wrapper
 - ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+
+
+addons:
+  sonarcloud:
+    organization: "rageshk-github"
+    token:
+      secure: ba6d7d1ad9a369f9f59e4ef1ae06f59dfa24ea35
+script:
+  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
