@@ -1,9 +1,17 @@
 language: java
 jdk: oraclejdk8
 
+services:
+- docker
+
 before_install:
   - chmod +x mvnw
-  
+
+env:
+  global:  
+  - secure: "pX27/1txNoOp1D0kFEjP0GVYSnBRNawLHv2cmxjzuETUrMFnaBYpxL2LD8tXVTrFlgnZLPlxJhCbLl6dUEjB8L1Sv8vzcmy+m7wsrPpzJ1qbm+JN7vhisGwKviHp9ZC/j5U908U5EV4yMjqV0pkWWJcBpIFvTJZ7SUw3PzeBMIStu4gA0EJuqmbr7RaL1faGwL5gIEkhYzj/lsQHeLyD8bkqECY2YZ4TjnS+YuuFv2vMQ6/O2ON7Uto18vL48BEJa9rwVb6Tv5e+SzeuMZdfI+Mqim7pWWurpcAM1bQBtrOwC2a4Yx7Wwyr/Ru0S3BQn2pVQVaUYjV9TQQAGCxWu8wuJkT6VxErJMBXgF/LNOuGG1kXsksUmKGT3F2H37Wcwu1bfzXj6iWxHd/XiEM51VkinGlfmS4ryyrVh8VhguGr5/JcWLTnEBuCwvs4Ox70+byQ+FxzivgXwg0WlWaNMLTF91v87tTpGautF0TFc4wDLhil+S9+zr+cDdY1qgDDZyOq2DWmXKZo/pyN7ZdyLly0v2kR2wyF8wzeezQM0Qlcaic21RTFg08Hef5i3XJ3oThxixIw5GF7bNr9aoQkveOkZeIMkMAx2meHE5rSbvAC57iUtS7ps2FKEjxeR78n5Pa6SdiQjmt0sSiZCXL7KeGMovDcJGMZSHCuugMtsUZM="
+  - secure: "2WBMBJuV8CmPfUu2HPQmGXexZ/Dm5dLK4ImXuufZKSYoH2+SKgQmL3rnAa9Dto3itTqHTVGi81lgK9G0P4kE/raMGsn0z7WnNU5T/GXZrxow9D24jI/p0do26j4im0nV5YwsTJTJE1nzZfnt5vGicXPP5jgP2pFW/4WGexU6EDdtOQ6e8bB5GJhJptlxcjEg6h9WiknJ+J3tHEPquAvyC+kReqpzGI9/e2fyJCyM8Y4UNKBKJ4dGJUfrOhGew/zImJdTBud/1K9kdgBQGAF4/sCAT8ZZ27YKjbHjhbl+nGQrWtB46QcI53D5eH2udwaw6XSDaQBlM2XggFIwT9Q1dpF7GCmeqqKP2B8ieGGrZQZjkbQeceE+kZ8acgnLshfz/xM13WuNmW1lTNYomc7egVqRkN1wg7UNVH2ouamVE4CMd03f62+GNUsMuxDZliWzXUyGFNbnFPZK5S3f3SVqt3IHef9zgefqoHbTDg6kXZaNvLR9LlAvt/3CWzio9kWjPWbcXNpMcpVbc8iCaLXh599oRAJktQpVMlof19nc/RT7uKs7OlJK/8zPt8/wXahPSqGm6z2FC8KIsr/C6yQCfgOKI8v+0BG04JaGwH+4o4aqenKKSXqS/gmnMC6eNdjrrkTCYwr3I39EUeIfaunpHNWzTGJlSGM+McBNkndV8nU="
+
 install:
 - mvn -N io.takari:maven:wrapper
 - ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
@@ -17,3 +25,9 @@ addons:
 script:
   # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
   - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
+  
+after_success:
+  - docker login -u $DOCKER_USER -p $DOCKER_PASS
+  - export IMAGE_NAME=rageshkh/healthcheeck-img
+  - docker build $IMAGE_NAME .
+  - docker push $IMAGE_NAME
