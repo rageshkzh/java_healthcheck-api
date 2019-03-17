@@ -5,7 +5,7 @@ Healthcheck API application provide an end point - /healthcheck - to return basi
   - Description
   - Last Commit SHA.
 
-Travis CI has been integrated with the application. Build id triggered automatically on pushing the code to Github repository.
+Travis CI has been integrated with the application. Build is triggered automatically on pushing the code to Github repository.
 
 ## Travis CI - Tasks :
 Travis CI process perform the following tasks:
